@@ -22,7 +22,8 @@ function preload() {
 }
 
 function create() {
-	game.add.sprite(0, 0, 'robot');
+	sprite=game.add.sprite(0, 0, 'robot');
+	sprite.scale.setTo(0.5,0.5);	
 }
 
 function update() {
