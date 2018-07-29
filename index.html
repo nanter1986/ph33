@@ -23,6 +23,7 @@ function preload() {
 
 function create() {
 	sprite=game.add.sprite(0, 0, 'robot');
+	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
 	sprite.events.onInputDown.add(listener,this);
 }
