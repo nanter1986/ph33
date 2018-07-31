@@ -18,19 +18,28 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var text;
 var counter = 0;
+var button;
+var background;
 
 
 function preload() {
 	game.load.image('robot', 'assets/robot.png');
+	game.load.spritesheet('button', 'assets/buttons/button_sprite_sheet.png', 193, 71);
+	game.load.image('background','assets/misc/starfield.png');
 }
 
 function create() {
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
+	game.stage.backgroundColor = '#182d3b';
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
 	text = game.add.text(250, 16, '', { fill: '#000000' });
 	sprite.events.onInputDown.add(listener,this);
+	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
+	button.onInputOver.add(over, this);
+	button.onInputOut.add(out, this);
+	button.onInputUp.add(up, this);
 }
 
 function listener(){
@@ -44,6 +53,22 @@ function update() {
 }
 
 function gofull() { game.scale.startFullScreen(false);}
+
+function up() {
+    console.log('button up', arguments);
+}
+
+function over() {
+    console.log('button over');
+}
+
+function out() {
+    console.log('button out');
+}
+
+function actionOnClick () {
+    background.visible =! background.visible;
+}
 
 </script>
 
