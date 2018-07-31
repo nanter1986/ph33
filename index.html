@@ -28,15 +28,15 @@ function create() {
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
-	text = game.add.text(250, 16, '', { fill: '#ffffff' });
+	text = game.add.text(250, 16, '', { fill: '#000000' });
 	sprite.events.onInputDown.add(listener,this);
 }
 
 function listener(){
 	counter++;
     text.text = "You clicked " + counter + " times!";
-	sprite.scale.setTo(0.5,0.5);	
-	sprite.events.onInputDown.add(listener,this);
+	//sprite.scale.setTo(0.5,0.5);	
+	//sprite.events.onInputDown.add(listener,this);
 }
 
 function update() {
