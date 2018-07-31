@@ -20,6 +20,7 @@ var text;
 var counter = 0;
 var button;
 var background;
+var sprite;
 
 
 function preload() {
@@ -36,18 +37,16 @@ function create() {
 	background.visible=true;
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
+	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
 	text = game.add.text(250, 16, '', { fill: '#000000' });
 	sprite.events.onInputDown.add(listener,this);
-	button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
-	button.onInputOver.add(over, this);
-	button.onInputOut.add(out, this);
-	button.onInputUp.add(up, this);
+	game.input.onTap.add(onTap,this);
 }
 
 function listener(){
 	counter++;
-    text.text = "You clicked " + counter + " times!";
+	text.text = "You clicked " + counter + " times!";
 	//sprite.scale.setTo(0.5,0.5);	
 	//sprite.events.onInputDown.add(listener,this);
 }
@@ -74,6 +73,11 @@ function actionOnClick () {
 	mX=game.input.mousePointer.x;
 	mY=game.input.mousePointer.y;
 	sprite.x=mX;
+}
+
+function onTap(pointer,doubleTap){
+	console.log("tap");
+	sprite.x=pointer.x;
 }
 
 </script>
