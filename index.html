@@ -25,6 +25,7 @@ function preload() {
 }
 
 function create() {
+	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
@@ -41,6 +42,8 @@ function listener(){
 
 function update() {
 }
+
+function gofull() { game.scale.startFullScreen(false);}
 
 </script>
 
