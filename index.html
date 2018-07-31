@@ -16,6 +16,9 @@
 <script type="text/javascript">
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var text;
+var counter = 0;
+
 
 function preload() {
 	game.load.image('robot', 'assets/robot.png');
@@ -25,10 +28,13 @@ function create() {
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
+	text = game.add.text(250, 16, '', { fill: '#ffffff' });
 	sprite.events.onInputDown.add(listener,this);
 }
 
 function listener(){
+	counter++;
+    text.text = "You clicked " + counter + " times!";
 	sprite.scale.setTo(0.5,0.5);	
 	sprite.events.onInputDown.add(listener,this);
 }
