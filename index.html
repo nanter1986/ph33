@@ -25,13 +25,14 @@ var background;
 function preload() {
 	game.load.image('robot', 'assets/robot.png');
 	game.load.spritesheet('button', 'assets/button_sprite_sheet.png', 193, 71);
-	game.load.image('background','assets/starfield.png');
+	game.load.image('background','assets/back.png');
 }
 
 function create() {
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
-	game.stage.backgroundColor = '#182d3b';
+	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.tileSprite(0, 0, 800, 600, 'background');
+	background.visible=true;
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
 	sprite.inputEnabled=true;
@@ -68,7 +69,7 @@ function out() {
 }
 
 function actionOnClick () {
-    background.visible =! background.visible;
+    //background.visible =! background.visible;
 }
 
 </script>
