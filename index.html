@@ -15,7 +15,7 @@
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(556, 200, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var text;
 var counter = 0;
 var button;
@@ -23,7 +23,7 @@ var background;
 
 
 function preload() {
-	game.load.image('robot', 'assets/robot.png');
+	game.load.image('robot', 'assets/char.png');
 	game.load.spritesheet('button', 'assets/button_sprite_sheet.png', 193, 71);
 	game.load.image('background','assets/back.png');
 }
