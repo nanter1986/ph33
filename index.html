@@ -58,7 +58,7 @@ function listener(){
 }
 
 function update() {
-	text = game.add.text(250, 100, ''+destination, { fill: '#000000' });
+	text = game.add.text(250, 150, ''+destination, { fill: '#000000' });
 	if(step==0){
 		sprite.loadTexture('stepA', 0);
 		step++;
@@ -104,6 +104,11 @@ function actionOnClick () {
 
 function onTap(pointer,doubleTap){
 	console.log("tap");
+	if(movable){
+		movable=false;
+		mX=game.input.mousePointer.x;
+		destination=mX;
+	}
 	//sprite.x=pointer.x;
 }
 
