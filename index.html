@@ -22,6 +22,8 @@ var button;
 var background;
 var sprite;
 var step=0;
+var movable=true;
+var destination;
 
 function preload() {
 	game.load.image('robot', 'assets/char.png');
@@ -41,16 +43,18 @@ function create() {
 	sprite.anchor.set(0.5);
 	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
+	destination=sprite.x;
 	text = game.add.text(250, 16, '', { fill: '#000000' });
 	sprite.events.onInputDown.add(listener,this);
 	game.input.onTap.add(onTap,this);
 }
 
 function listener(){
-	counter++;
-	text.text = "You clicked " + counter + " times!";
-	//sprite.scale.setTo(0.5,0.5);	
-	//sprite.events.onInputDown.add(listener,this);
+	if(movable){
+		movable=false;
+		mX=game.input.mousePointer.x;
+		destination=mX;
+	}
 }
 
 function update() {
@@ -65,6 +69,12 @@ function update() {
 	}else{
 		step++;
 	}
+	if(destination<sprite.x){
+		sprite.x--;
+	}else if(destination>sprite.x){
+		sprite.x++;
+	}
+	
 }
 
 function gofull() { game.scale.startFullScreen(false);}
