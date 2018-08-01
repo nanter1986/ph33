@@ -44,7 +44,7 @@ function create() {
 	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
 	destination=sprite.x;
-	text = game.add.text(250, 16, '', { fill: '#000000' });
+	text = game.add.text(250, 160, '', { fill: '#000000' });
 	sprite.events.onInputDown.add(listener,this);
 	game.input.onTap.add(onTap,this);
 }
@@ -58,7 +58,7 @@ function listener(){
 }
 
 function update() {
-	text = game.add.text(250, 150, ''+destination, { fill: '#000000' });
+	text.text='destination'+destination;
 	if(step==0){
 		sprite.loadTexture('stepA', 0);
 		step++;
