@@ -44,7 +44,7 @@ function create() {
 	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
 	destination=sprite.x;
-	text = game.add.text(250, 160, '', { fill: '#ffffff' });
+	text = game.add.text(250, 80, '', { fill: '#ffffff' });
 	sprite.events.onInputDown.add(listener,this);
 	game.input.onTap.add(onTap,this);
 }
@@ -106,7 +106,7 @@ function onTap(pointer,doubleTap){
 	console.log("tap");
 	if(movable){
 		movable=false;
-		mX=game.input.mousePointer.x;
+		mX=pointer.x;
 		destination=mX;
 	}
 	//sprite.x=pointer.x;
