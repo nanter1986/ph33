@@ -56,10 +56,14 @@ function listener(){
 function update() {
 	if(step==0){
 		sprite.loadTexture('stepA', 0);
-		step=1;
-	}else{
+		step++;
+	}else if(step==3){
 		sprite.loadTexture('stepB', 0);
+		step++;
+	}else if(step==5){	
 		step=0;
+	}else{
+		step++;
 	}
 }
 
