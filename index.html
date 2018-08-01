@@ -44,7 +44,7 @@ function create() {
 	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
 	destination=sprite.x;
-	text = game.add.text(250, 160, '', { fill: '#000000' });
+	text = game.add.text(250, 160, '', { fill: '#ffffff' });
 	sprite.events.onInputDown.add(listener,this);
 	game.input.onTap.add(onTap,this);
 }
