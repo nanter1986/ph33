@@ -58,6 +58,7 @@ function listener(){
 }
 
 function update() {
+	text = game.add.text(250, 16, ''+destination, { fill: '#000000' });
 	if(step==0){
 		sprite.loadTexture('stepA', 0);
 		step++;
