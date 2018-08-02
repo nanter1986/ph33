@@ -15,8 +15,8 @@ body {
 	<body>
 
 		<script type="text/javascript">
-
-			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+console.log('start');
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var text;
 var counter = 0;
 var button;
@@ -30,6 +30,7 @@ var stay;
 var left;
 
 function preload() {
+	console.log('preload');
 	game.load.image('robot', 'assets/char.png');
 	game.load.image('stepA', 'assets/stepA.png');
 	game.load.image('stepB', 'assets/stepB.png');
@@ -38,10 +39,11 @@ function preload() {
 	game.load.image('left3', 'assets/left3.png');
 	game.load.spritesheet('button', 'assets/button_sprite_sheet.png', 193, 71);
 	game.load.image('background','assets/back.png');
+	console.log('preload end');
 }
 
 function create() {
-	console.log('create');
+	console.log('create start');
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.tileSprite(0, 0, 1600, 600, 'background');
@@ -58,6 +60,7 @@ function create() {
 	game.input.onTap.add(onTap,this);
 	left=['left1','left2','left3'];
 	stay=['stepA','stepB'];
+	console.log('create end');
 }
 
 function listener(){
