@@ -43,6 +43,7 @@ function preload() {
 }
 
 function create() {
+	console.log('create');
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.tileSprite(0, 0, 1600, 600, 'background');
@@ -84,13 +85,14 @@ function animate(arrayOfFrames,step){
 }
 
 function update() {
+	console.log('update');
 	text.text='destination1'+destination;
 	if(direction==0){
-		animate(stay,step)
+		animate(stay,step);
 	}else if(direction==-1){
-		animate(left,step)
+		animate(left,step);
 	}else if(direction==1){	
-		animate(left,step)
+		animate(left,step);
 	}
 	if(destination<sprite.x){
 		sprite.x--;
