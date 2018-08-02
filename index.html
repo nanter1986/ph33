@@ -66,10 +66,10 @@ function listener(){
 
 function animate(arrayOfFrames,step){
 	var l=arrayOfFrames.length*10;
-	while(i<l){
+	while(step<l){
 		sprite.loadTexture(arrayOfFrames[Math.floor(i/10)], 0);
 		step++;
-		if(i==l){
+		if(step==l){
 			step=0;
 		}
 	}
