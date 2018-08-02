@@ -68,7 +68,7 @@ function animate(arrayOfFrames,step){
 	//animates any number of frames
 	var l=arrayOfFrames.length*10;
 	while(step<l){
-		sprite.loadTexture(arrayOfFrames[step%l]), 0);
+		sprite.loadTexture(arrayOfFrames[step%arrayOfFrames.length]), 0);
 		step++;
 		if(step==l){
 			step=0;
