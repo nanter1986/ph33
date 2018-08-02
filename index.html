@@ -65,7 +65,7 @@ function listener(){
 }
 
 function animate(arrayOfFrames,step){
-	var l=arrayOfFrames.length()*10;
+	var l=arrayOfFrames.length*10;
 	while(i<l){
 		sprite.loadTexture(arrayOfFrames[Math.floor(i/10)], 0);
 		step++;
