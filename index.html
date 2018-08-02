@@ -1,21 +1,21 @@
 <!doctype html> 
 <html lang="en"> 
-<head> 
-	<meta charset="UTF-8" />
-	<title>Phaser - Making your first game, part 1</title>
-	<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
-    <!--<script src="js/phaser.js"></script>-->
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+	<head> 
+		<meta charset="UTF-8" />
+		<title>Phaser - Making your first game, part 1</title>
+		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+		<!--<script src="js/phaser.js"></script>-->
+		<style type="text/css">
+body {
+	margin: 0;
+}
+		</style>
+	</head>
+	<body>
 
-<script type="text/javascript">
+		<script type="text/javascript">
 
-var game = new Phaser.Game(1112, 400, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+			var game = new Phaser.Game(1112, 400, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var text;
 var counter = 0;
 var button;
@@ -46,6 +46,7 @@ function create() {
 	destination=sprite.x;
 	text = game.add.text(250, 80, '', { fill: '#ffffff' });
 	sprite.events.onInputDown.add(listener,this);
+	game.camera.follow(sprite);
 	game.input.onTap.add(onTap,this);
 }
 
@@ -78,25 +79,25 @@ function update() {
 		destination=sprite.x;
 		movable=true;
 	}
-	
+
 }
 
 function gofull() { game.scale.startFullScreen(false);}
 
 function up() {
-    console.log('button up', arguments);
+	console.log('button up', arguments);
 }
 
 function over() {
-    console.log('button over');
+	console.log('button over');
 }
 
 function out() {
-    console.log('button out');
+	console.log('button out');
 }
 
 function actionOnClick () {
-    //background.visible =! background.visible;
+	//background.visible =! background.visible;
 	//mX=game.input.mousePointer.x;
 	//mY=game.input.mousePointer.y;
 	//sprite.x=mX;
@@ -112,7 +113,7 @@ function onTap(pointer,doubleTap){
 	//sprite.x=pointer.x;
 }
 
-</script>
+		</script>
 
-</body>
+	</body>
 </html>
