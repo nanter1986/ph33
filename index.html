@@ -35,6 +35,8 @@ function preload() {
 	game.load.image('left3', 'assets/left3.png');
 	game.load.spritesheet('button', 'assets/button_sprite_sheet.png', 193, 71);
 	game.load.image('background','assets/back.png');
+	left=['left1','left2','left3'];
+	stay=['stepA','stepB'];
 }
 
 function create() {
@@ -62,14 +64,13 @@ function listener(){
 	}
 }
 
-function animate(arrayOfFrames){
+function animate(arrayOfFrames,step){
 	var l=arrayOfFrames.length()*10;
-	var i=0;
 	while(i<l){
 		sprite.loadTexture(arrayOfFrames[Math.floor(i/10)], 0);
-		i++;
+		step++;
 		if(i==l){
-			i=0;
+			step=0;
 		}
 	}
 
@@ -77,17 +78,12 @@ function animate(arrayOfFrames){
 
 function update() {
 	text.text='destination'+destination;
-	
-	if(step==0){
-		sprite.loadTexture('stepA', 0);
-		step++;
-	}else if(step==10){
-		sprite.loadTexture('stepB', 0);
-		step++;
-	}else if(step==20){	
-		step=0;
-	}else{
-		step++;
+	if(direction==0){
+		animate(stay,step)
+	}else if(direction==-1){
+		animate(left,step)
+	}else if(direction==1){	
+		animate(left,step)
 	}
 	if(destination<sprite.x){
 		sprite.x--;
