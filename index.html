@@ -15,7 +15,7 @@ body {
 
 		<script type="text/javascript">
 
-			var game = new Phaser.Game(1112, 400, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var text;
 var counter = 0;
 var button;
@@ -37,7 +37,7 @@ function create() {
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.tileSprite(0, 0, 800, 600, 'background');
-	background.scale.setTo(2,2);
+	background.scale.setTo(2,1);
 	background.visible=true;
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
