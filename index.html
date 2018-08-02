@@ -73,13 +73,14 @@ function listener(){
 
 function animate(arrayOfFrames,step){
 	//animates any number of frames
-	var l=arrayOfFrames.length*10;
+	var length=arrayOfFrames.length;
+	var l=length*10;
 	console.log('1');
 	while(step<l){
 	console.log('2');
-		sprite.loadTexture(arrayOfFrames[step%arrayOfFrames.length], 0);
+		sprite.loadTexture(arrayOfFrames[step%length], 0);
 		step++;
-		if(step==l){
+		if(step>l){
 			console.log('3');
 			step=0;
 		}
