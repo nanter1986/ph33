@@ -79,6 +79,8 @@ function animate(arrayOfFrames,step){
 		console.log('2');
 		var index=step%length;
 		console.log('step:'+step+'/index:'+index+'/length:'+length+'/l:'+l);
+		var frame=arrayOfFrames[index];
+		console.log(frame);
 		sprite.loadTexture(arrayOfFrames[index], 0);
 		step++;
 		if(step>l){
