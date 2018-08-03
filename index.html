@@ -29,11 +29,15 @@ var stay;
 var left;
 var currentCharacterFrame;
 var popup;
+var yes;
+var no;
 
 function preload() {
 	console.log('preload');
 	game.load.image('robot', 'assets/stand.png');
 	game.load.image('box', 'assets/box.png');
+	game.load.image('yes', 'assets/yes.png');
+	game.load.image('no', 'assets/no.png');
 	game.load.image('stepA', 'assets/stepA.png');
 	game.load.image('stepB', 'assets/stepB.png');
 	game.load.image('left1', 'assets/left1.png');
@@ -152,6 +156,7 @@ function onTap(pointer,doubleTap){
 			var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: sprite.width, align: "center", backgroundColor: "#ffff00" };
 			text = game.add.text(popup.x, popup.y, "Enter Door?", style);
     			text.anchor.set(0.5);
+			yes=game.add.sprite(text.x,text.y,'yes');
 		}
 	}
 	if(destination<sprite.x){
