@@ -50,7 +50,7 @@ function create() {
 	background.scale.setTo(2,2);
 	background.visible=true;
 	sprite=game.add.sprite(200, 150, 'robot');
-	sprite.anchor.set(0.5);
+	sprite.anchor.set(0.5,0.5);
 	sprite.scale.setTo(2,2);
 	sprite.inputEnabled=true;
 	destination=sprite.x;
@@ -103,6 +103,7 @@ function update() {
 	}
 	if(destination+3<sprite.x){
 		sprite.x-=3;
+		sprite.scale.x*=-1;
 		direction=-1;
 	}else if(destination-3>sprite.x){
 		sprite.x+=3;
