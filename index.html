@@ -82,7 +82,6 @@ function animate(arrayOfFrames,step){
 	console.log('step:'+step+'/index:'+index+'/length:'+length);
 	frame=arrayOfFrames[index];
 	console.log(frame);
-	//sprite.loadTexture(frame);
 	step++;
 	if(step>=length){
 		console.log('3');
@@ -93,6 +92,7 @@ function animate(arrayOfFrames,step){
 
 function update() {
 	console.log('update');
+	sprite.loadTexture(currentCharacterFrame);
 	text.text='destination1'+destination;
 	if(direction==0){
 		currentCharacterFrame=animate(stay,step);
@@ -101,7 +101,6 @@ function update() {
 	}else if(direction==1){	
 		currentCharacterFrame=animate(left,step);
 	}
-	sprite.loadTexture(currentCharacterFrame);
 	if(destination<sprite.x){
 		sprite.x--;
 		direction=-1;
