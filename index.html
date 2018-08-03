@@ -47,7 +47,7 @@ function create() {
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.tileSprite(0, 0, 556, 200, 'background');
-	background.scale.setTo(4,4);
+	background.scale.setTo(2,2);
 	background.visible=true;
 	sprite=game.add.sprite(200, 200, 'robot');
 	sprite.anchor.set(0.5);
@@ -74,21 +74,18 @@ function listener(){
 function animate(arrayOfFrames,step){
 	//animates any number of frames
 	var length=arrayOfFrames.length;
-	var l=length*10;
 	console.log('1');
 	var frame;
-	while(step<l){
-		console.log('2');
-		var index=step%length;
-		console.log('step:'+step+'/index:'+index+'/length:'+length+'/l:'+l);
-		frame=arrayOfFrames[index];
-		console.log(frame);
-		//sprite.loadTexture(frame);
-		step++;
-		if(step>l){
-			console.log('3');
-			step=0;
-		}
+	console.log('2');
+	var index=step%length;
+	console.log('step:'+step+'/index:'+index+'/length:'+length);
+	frame=arrayOfFrames[index];
+	console.log(frame);
+	//sprite.loadTexture(frame);
+	step++;
+	if(step>=l){
+		console.log('3');
+		step=0;
 	}
 	return frame;
 }
