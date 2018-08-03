@@ -27,6 +27,7 @@ var destination;
 var direction=0;
 var stay;
 var left;
+var currentCharacterFrame:
 
 function preload() {
 	console.log('preload');
@@ -75,32 +76,34 @@ function animate(arrayOfFrames,step){
 	var length=arrayOfFrames.length;
 	var l=length*10;
 	console.log('1');
+	var frame;
 	while(step<l){
 		console.log('2');
 		var index=step%length;
 		console.log('step:'+step+'/index:'+index+'/length:'+length+'/l:'+l);
-		var frame=arrayOfFrames[index];
+		frame=arrayOfFrames[index];
 		console.log(frame);
-		sprite.loadTexture(frame);
+		//sprite.loadTexture(frame);
 		step++;
 		if(step>l){
 			console.log('3');
 			step=0;
 		}
 	}
-
+	return frame;
 }
 
 function update() {
 	console.log('update');
 	text.text='destination1'+destination;
 	if(direction==0){
-		animate(stay,step);
+		currentCharacterFrame=animate(stay,step);
 	}else if(direction==-1){
-		animate(left,step);
+		currentCharacterFrame=animate(left,step);
 	}else if(direction==1){	
-		animate(left,step);
+		currentCharacterFrame=animate(left,step);
 	}
+	sprite.loadTexture(currentCharacterFrame);
 	if(destination<sprite.x){
 		sprite.x--;
 		direction=-1;
