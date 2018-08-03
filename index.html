@@ -81,7 +81,7 @@ function animate(arrayOfFrames,step){
 		console.log('step:'+step+'/index:'+index+'/length:'+length+'/l:'+l);
 		var frame=arrayOfFrames[index];
 		console.log(frame);
-		sprite.loadTexture(arrayOfFrames[index], 0);
+		sprite.loadTexture(frame);
 		step++;
 		if(step>l){
 			console.log('3');
