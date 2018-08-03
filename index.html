@@ -159,7 +159,9 @@ function onTap(pointer,doubleTap){
     			text.anchor.set(0.5);
 			yes=game.add.sprite(text.x-40,text.y,'yes');
 			no=game.add.sprite(text.x,text.y,'no');
+			no.inputEnabled = true;
 			popupOnscreen=true;
+			no.events.onInputDown.add(noClick, this);
 		}
 	}
 	if(destination<sprite.x){
@@ -168,6 +170,14 @@ function onTap(pointer,doubleTap){
 		sprite.scale.x=2;	
 	}
 	//sprite.x=pointer.x;
+}
+			
+function noClick(){
+	popupOnscreen=false;
+	popup.destroy();
+	yes.destroy();
+	no.destroy();
+	text.destroy();
 }
 
 		</script>
