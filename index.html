@@ -72,7 +72,7 @@ function listener(){
 	}
 }
 
-function animate(arrayOfFrames,step){
+function animate(arrayOfFrames){
 	//animates any number of frames
 	var length=arrayOfFrames.length;
 	console.log('1');
@@ -95,11 +95,11 @@ function update() {
 	sprite.loadTexture(currentCharacterFrame);
 	text.text='destination1'+destination;
 	if(direction==0){
-		currentCharacterFrame=animate(stay,step);
+		currentCharacterFrame=animate(stay);
 	}else if(direction==-1){
-		currentCharacterFrame=animate(left,step);
+		currentCharacterFrame=animate(left);
 	}else if(direction==1){	
-		currentCharacterFrame=animate(left,step);
+		currentCharacterFrame=animate(left);
 	}
 	if(destination<sprite.x){
 		sprite.x--;
