@@ -93,7 +93,7 @@ function animate(arrayOfFrames){
 function update() {
 	console.log('update');
 	sprite.loadTexture(currentCharacterFrame);
-	text.text='destination1'+destination;
+	//text.text='destination1'+destination;
 	if(direction==0){
 		currentCharacterFrame=animate(stay);
 	}else if(direction==-1){
@@ -142,6 +142,9 @@ function onTap(pointer,doubleTap){
 		movable=false;
 		mX=pointer.x;
 		destination=mX;
+		if(destination>=420 && destination<=530){
+			text.text="door found";
+		}
 	}
 	if(destination<sprite.x){
 		sprite.scale.x*=-1;
