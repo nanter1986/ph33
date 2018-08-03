@@ -31,6 +31,7 @@ var currentCharacterFrame;
 var popup;
 var yes;
 var no;
+var popupOnscreen=false;
 
 function preload() {
 	console.log('preload');
@@ -144,7 +145,7 @@ function actionOnClick () {
 
 function onTap(pointer,doubleTap){
 	console.log("tap");
-	if(movable){
+	if(movable && popupOnscreen==false){
 		movable=false;
 		mX=pointer.x;
 		destination=mX;
@@ -158,6 +159,7 @@ function onTap(pointer,doubleTap){
     			text.anchor.set(0.5);
 			yes=game.add.sprite(text.x-40,text.y,'yes');
 			no=game.add.sprite(text.x,text.y,'no');
+			popupOnscreen==true;
 		}
 	}
 	if(destination<sprite.x){
