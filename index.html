@@ -161,9 +161,11 @@ function onTap(pointer,doubleTap){
 			var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: popup.width, align: "center", backgroundColor: "#ffff00" };
 			text = game.add.text(popup.x, popup.y-20, "Enter Door?", style);
     			text.anchor.set(0.5);
-			yes=game.add.sprite(text.x-40,text.y,'yes');
-			no=game.add.sprite(text.x,text.y,'no');
+			yes=game.add.sprite(text.x-120,text.y-40,'yes');
+			no=game.add.sprite(text.x,text.y-40,'no');
+			no.inputEnabled = true;
 			popupOnscreen=true;
+			no.events.onInputDown.add(noClick, this);
 		}
 	}
 	if(destination<sprite.x){
@@ -172,6 +174,14 @@ function onTap(pointer,doubleTap){
 		sprite.scale.x=2;	
 	}
 	//sprite.x=pointer.x;
+}
+			
+function noClick(){
+	popup.destroy();
+	yes.destroy();
+	no.destroy();
+	text.destroy();
+	popupOnscreen=false;
 }
 
 		</script>
