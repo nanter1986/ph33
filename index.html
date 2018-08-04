@@ -32,6 +32,7 @@ var popup;
 var yes;
 var no;
 var popupOnscreen=false;
+var delayForPopup=0;
 
 function preload() {
 	console.log('preload');
@@ -119,6 +120,9 @@ function update() {
 		movable=true;
 		direction=0;
 	}
+	if(delayForPopup>0){
+		delayForPopup--;	
+	}
 
 }
 
@@ -145,7 +149,7 @@ function actionOnClick () {
 
 function onTap(pointer,doubleTap){
 	console.log("tap");
-	if(movable && popupOnscreen==false){
+	if(movable && popupOnscreen==false && delayForPopup==0){
 		movable=false;
 		mX=pointer.x;
 		destination=mX;
