@@ -18,6 +18,7 @@ body {
 console.log('start');
 var game = new Phaser.Game(1112, 224, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 game.state.add('outside',outsideState);
+game.state.add('indide',insideState);
 var text;
 var counter = 0;
 var button;
@@ -54,6 +55,7 @@ function preload() {
 
 function create() {
 	console.log('create start');
+	game.state.start('inside');
 	if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 	//game.stage.backgroundColor = '#182d3b';
 	background = game.add.sprite(0, 0, 'background');
