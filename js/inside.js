@@ -35,65 +35,65 @@ var insideState={
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
 		//game.stage.backgroundColor = '#182d3b';
-		background = game.add.sprite(0, 0, 'background');
-		background.scale.setTo(2,2);
-		background.visible=true;
-		sprite=game.add.sprite(200, 150, 'robot');
-		sprite.anchor.set(0.5,0.5);
-		sprite.scale.setTo(2,2);
-		sprite.inputEnabled=true;
-		destination=sprite.x;
-		text = game.add.text(250, 80, '', { fill: '#ffffff' });
-		sprite.events.onInputDown.add(listener,this);
+		this.background = game.add.sprite(0, 0, 'background');
+		this.background.scale.setTo(2,2);
+		this.ackground.visible=true;
+		this.sprite=game.add.sprite(200, 150, 'robot');
+		this.sprite.anchor.set(0.5,0.5);
+		this.sprite.scale.setTo(2,2);
+		this.sprite.inputEnabled=true;
+		this.destination=sprite.x;
+		this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
+		this.sprite.events.onInputDown.add(listener,this);
 		game.camera.follow(sprite);
 		game.input.onTap.add(onTap,this);
-		left=['left1','left2','left3'];
-		stay=['robot'];
-		currentCharacterFrame=stay[0];
+		this.left=['left1','left2','left3'];
+		this.stay=['robot'];
+		this.currentCharacterFrame=this.stay[0];
 		console.log('create end');
 	},
 	update:function(){
 		console.log('update');
-		sprite.loadTexture(currentCharacterFrame);
+		this.sprite.loadTexture(currentCharacterFrame);
 		//text.text='destination1'+destination;
 		if(this.direction==0){
-			currentCharacterFrame=animate(stay);
+			this.currentCharacterFrame=animate(stay);
 		}else if(this.direction==-1){
-			currentCharacterFrame=animate(left);
+			this.currentCharacterFrame=animate(left);
 		}else if(this.direction==1){	
-			currentCharacterFrame=animate(left);
+			this.currentCharacterFrame=animate(left);
 		}
-		if(destination+5<sprite.x){
-			sprite.x-=5;
-			direction=-1;
-		}else if(destination-5>sprite.x){
-			sprite.x+=5;
-			direction=1;
+		if(this.destination+5<this.sprite.x){
+			this.sprite.x-=5;
+			this.direction=-1;
+		}else if(this.destination-5>this.sprite.x){
+			this.sprite.x+=5;
+			this.direction=1;
 		}else{
-			destination=sprite.x;
-			movable=true;
-			direction=0;
+			this.destination=this.sprite.x;
+			this.movable=true;
+			this.direction=0;
 		}
-		if(delayForPopup>0){
-			delayForPopup--;	
+		if(this.delayForPopup>0){
+			this.delayForPopup--;	
 		}
 
 
 	},
 	animate:function(){
 		//animates any number of frames
-		var length=arrayOfFrames.length;
+		var length=this.arrayOfFrames.length;
 		console.log('1');
 		var frame;
 		console.log('2');
-		var index=step%length;
-		console.log('step:'+step+'/index:'+index+'/length:'+length);
-		frame=arrayOfFrames[index];
+		var index=this.step%length;
+		console.log('step:'+this.step+'/index:'+index+'/length:'+length);
+		frame=this.arrayOfFrames[index];
 		console.log(frame);
-		step++;
-		if(step>=length){
+		this.step++;
+		if(this.step>=length){
 			console.log('3');
-			step=0;
+			this.step=0;
 		}
 		return frame;
 	},
@@ -102,51 +102,51 @@ var insideState={
 	},
 	onTap:function(pointer,doubleTap){
 		console.log("tap");
-		if(movable && popupOnscreen==false && delayForPopup==0){
-			movable=false;
-			mX=pointer.x;
-			destination=mX;
-			if(destination>=420 && destination<=530 && sprite.x>=420 && sprite.x<=530){
-				text.text="door found";
-				popup=game.add.sprite(game.world.centerX,game.world.centerY,'box');
-				popup.alpha=0.8;
-				popup.anchor.set(0.5);
-				var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: popup.width, align: "center", backgroundColor: "#ffff00" };
-				text = game.add.text(popup.x, popup.y-20, "Enter Door?", style);
-				text.anchor.set(0.5);
-				yes=game.add.sprite(text.x-120,text.y-40,'yes');
-				no=game.add.sprite(text.x,text.y-40,'no');
-				no.inputEnabled = true;
-				yes.inputEnabled = true;
-				popupOnscreen=true;
-				no.events.onInputDown.add(noClick, this);
-				yes.events.onInputDown.add(yesClick, this);
+		if(this.movable && this.popupOnscreen==false && this.delayForPopup==0){
+			this.movable=false;
+			this.mX=pointer.x;
+			this.destination=mX;
+			if(this.destination>=420 && this.destination<=530 && this.sprite.x>=420 && this.sprite.x<=530){
+				this.text.text="door found";
+				this.popup=game.add.sprite(game.world.centerX,game.world.centerY,'box');
+				this.popup.alpha=0.8;
+				this.popup.anchor.set(0.5);
+				var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: this.popup.width, align: "center", backgroundColor: "#ffff00" };
+				this.text = game.add.text(popup.x, popup.y-20, "Enter Door?", style);
+				this.text.anchor.set(0.5);
+				this.yes=game.add.sprite(this.text.x-120,this.text.y-40,'yes');
+				this.no=game.add.sprite(this.text.x,this.text.y-40,'no');
+				this.no.inputEnabled = true;
+				this.yes.inputEnabled = true;
+				this.popupOnscreen=true;
+				this.no.events.onInputDown.add(noClick, this);
+				this.yes.events.onInputDown.add(yesClick, this);
 			}
 		}
-		if(destination<sprite.x){
-			sprite.scale.x=-2;
+		if(this.destination<this.sprite.x){
+			this.sprite.scale.x=-2;
 		}else{
-			sprite.scale.x=2;	
+			this.sprite.scale.x=2;	
 		}
 		//sprite.x=pointer.x;
 
 	},
 	noClick:function(){
-		popup.destroy();
-		yes.destroy();
-		no.destroy();
-		text.destroy();
-		popupOnscreen=false;
-		delayForPopup=10;
+		this.popup.destroy();
+		this.yes.destroy();
+		this.no.destroy();
+		this.text.destroy();
+		this.popupOnscreen=false;
+		this.delayForPopup=10;
 
 	},
 	yesClick:function(){
-		popup.destroy();
-		yes.destroy();
-		no.destroy();
-		text.destroy();
-		popupOnscreen=false;
-		delayForPopup=10;
+		this.popup.destroy();
+		this.yes.destroy();
+		this.no.destroy();
+		this.text.destroy();
+		this.popupOnscreen=false;
+		this.delayForPopup=10;
 		game.state.start('outside');
 
 	}
