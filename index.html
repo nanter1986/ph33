@@ -166,8 +166,10 @@ function onTap(pointer,doubleTap){
 			yes=game.add.sprite(text.x-120,text.y-40,'yes');
 			no=game.add.sprite(text.x,text.y-40,'no');
 			no.inputEnabled = true;
+			yes.inputEnabled = true;
 			popupOnscreen=true;
 			no.events.onInputDown.add(noClick, this);
+			yes.events.onInputDown.add(yesClick, this);
 		}
 	}
 	if(destination<sprite.x){
@@ -185,6 +187,16 @@ function noClick(){
 	text.destroy();
 	popupOnscreen=false;
 	delayForPopup=10;
+}
+
+function yesClick(){
+	popup.destroy();
+	yes.destroy();
+	no.destroy();
+	text.destroy();
+	popupOnscreen=false;
+	delayForPopup=10;
+	game.state.start('outside');
 }
 
 		</script>
