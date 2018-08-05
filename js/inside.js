@@ -43,9 +43,9 @@ var insideState={
 		this.sprite.anchor.set(0.5,0.5);
 		this.sprite.scale.setTo(2,2);
 		this.sprite.inputEnabled=true;
-		this.destination=sprite.x;
+		this.destination=this.sprite.x;
 		this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
-		this.sprite.events.onInputDown.add(listener,this);
+		//this.sprite.events.onInputDown.add(listener,this);
 		game.camera.follow(this.sprite);
 		game.input.onTap.add(this.onTap,this);
 		this.left=['left1','left2','left3'];
