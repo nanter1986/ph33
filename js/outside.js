@@ -1,6 +1,6 @@
 var outsideState={
 	preload:function(){
-		game.load.image("map","assets/map.png);
+		game.load.image("map","assets/map.png");
 		console.log("into outside state");
 
 	},
