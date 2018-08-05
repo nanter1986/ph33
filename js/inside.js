@@ -56,11 +56,11 @@ var insideState={
 		console.log('update');
 		sprite.loadTexture(currentCharacterFrame);
 		//text.text='destination1'+destination;
-		if(direction==0){
+		if(this.direction==0){
 			currentCharacterFrame=animate(stay);
-		}else if(direction==-1){
+		}else if(this.direction==-1){
 			currentCharacterFrame=animate(left);
-		}else if(direction==1){	
+		}else if(this.direction==1){	
 			currentCharacterFrame=animate(left);
 		}
 		if(destination+5<sprite.x){
