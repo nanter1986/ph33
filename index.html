@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>Phaser - Making your first game, part 1</title>
 		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+		<script type="text/javascript" src="js/outside.js"></script>
 		<!--<script src="js/phaser.js"></script>-->
 		<style type="text/css">
 body {
@@ -16,6 +17,7 @@ body {
 		<script type="text/javascript">
 console.log('start');
 var game = new Phaser.Game(1112, 224, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+game.state.add('outside',outsideState);
 var text;
 var counter = 0;
 var button;
@@ -160,12 +162,14 @@ function onTap(pointer,doubleTap){
 			popup.anchor.set(0.5);
 			var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: popup.width, align: "center", backgroundColor: "#ffff00" };
 			text = game.add.text(popup.x, popup.y-20, "Enter Door?", style);
-    			text.anchor.set(0.5);
+			text.anchor.set(0.5);
 			yes=game.add.sprite(text.x-120,text.y-40,'yes');
 			no=game.add.sprite(text.x,text.y-40,'no');
 			no.inputEnabled = true;
+			yes.inputEnabled = true;
 			popupOnscreen=true;
 			no.events.onInputDown.add(noClick, this);
+			yes.events.onInputDown.add(yesClick, this);
 		}
 	}
 	if(destination<sprite.x){
@@ -175,7 +179,7 @@ function onTap(pointer,doubleTap){
 	}
 	//sprite.x=pointer.x;
 }
-			
+
 function noClick(){
 	popup.destroy();
 	yes.destroy();
@@ -183,6 +187,16 @@ function noClick(){
 	text.destroy();
 	popupOnscreen=false;
 	delayForPopup=10;
+}
+
+function yesClick(){
+	popup.destroy();
+	yes.destroy();
+	no.destroy();
+	text.destroy();
+	popupOnscreen=false;
+	delayForPopup=10;
+	game.state.start('outside');
 }
 
 		</script>
