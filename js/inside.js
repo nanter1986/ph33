@@ -39,6 +39,7 @@ var insideState={
 		this.background.scale.setTo(2,2);
 		this.background.visible=true;
 		this.sprite=game.add.sprite(200, 150, 'robot');
+		console.log(this.sprite);
 		this.sprite.anchor.set(0.5,0.5);
 		this.sprite.scale.setTo(2,2);
 		this.sprite.inputEnabled=true;
@@ -50,6 +51,7 @@ var insideState={
 		this.left=['left1','left2','left3'];
 		this.stay=['robot'];
 		this.currentCharacterFrame=this.stay[0];
+		console.log(this.currentCharacterFrame);
 		console.log('create end');
 	},
 	update:function(){
