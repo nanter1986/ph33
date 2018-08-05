@@ -5,6 +5,7 @@
 		<title>Phaser - Making your first game, part 1</title>
 		<script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
 		<script type="text/javascript" src="js/outside.js"></script>
+		<script type="text/javascript" src="js/inside.js"></script>
 		<!--<script src="js/phaser.js"></script>-->
 		<style type="text/css">
 body {
@@ -19,7 +20,7 @@ console.log('start');
 var game = new Phaser.Game(1112, 224, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 game.state.add('outside',outsideState);
 game.state.add('indide',insideState);
-var text;
+/*var text;
 var counter = 0;
 var button;
 var background;
@@ -36,7 +37,9 @@ var yes;
 var no;
 var popupOnscreen=false;
 var delayForPopup=0;
+*/
 
+/*
 function preload() {
 	console.log('preload');
 	game.load.image('robot', 'assets/stand.png');
@@ -52,6 +55,7 @@ function preload() {
 	game.load.image('background','assets/back.png');
 	console.log('preload end');
 }
+*/
 
 function create() {
 	console.log('create start');
