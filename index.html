@@ -20,6 +20,7 @@ console.log('start');
 var game = new Phaser.Game(1112, 224, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 game.state.add('outside',outsideState);
 game.state.add('indide',insideState);
+game.state.start('inside');
 /*var text;
 var counter = 0;
 var button;
@@ -39,7 +40,7 @@ var popupOnscreen=false;
 var delayForPopup=0;
 */
 
-
+/*
 function preload() {
 	console.log('preload');
 	game.load.image('robot', 'assets/stand.png');
@@ -55,7 +56,7 @@ function preload() {
 	game.load.image('background','assets/back.png');
 	console.log('preload end');
 }
-
+*/
 
 function create() {
 	console.log('create start');
