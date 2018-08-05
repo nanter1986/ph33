@@ -33,7 +33,7 @@ var insideState={
 	},
 	create:function(){
 		console.log('create start');
-		if (!game.device.desktop){ game.input.onDown.add(gofull, this); } //go fullscreen on mobile devices
+		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
 		//game.stage.backgroundColor = '#182d3b';
 		this.background = game.add.sprite(0, 0, 'background');
 		this.background.scale.setTo(2,2);
