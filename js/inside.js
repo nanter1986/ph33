@@ -37,7 +37,7 @@ var insideState={
 		//game.stage.backgroundColor = '#182d3b';
 		this.background = game.add.sprite(0, 0, 'background');
 		this.background.scale.setTo(2,2);
-		this.ackground.visible=true;
+		this.background.visible=true;
 		this.sprite=game.add.sprite(200, 150, 'robot');
 		this.sprite.anchor.set(0.5,0.5);
 		this.sprite.scale.setTo(2,2);
