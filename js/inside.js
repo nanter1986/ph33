@@ -46,8 +46,8 @@ var insideState={
 		this.destination=sprite.x;
 		this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
 		this.sprite.events.onInputDown.add(listener,this);
-		game.camera.follow(sprite);
-		game.input.onTap.add(onTap,this);
+		game.camera.follow(this.sprite);
+		game.input.onTap.add(this.onTap,this);
 		this.left=['left1','left2','left3'];
 		this.stay=['robot'];
 		this.currentCharacterFrame=this.stay[0];
@@ -59,11 +59,11 @@ var insideState={
 		this.sprite.loadTexture(currentCharacterFrame);
 		//text.text='destination1'+destination;
 		if(this.direction==0){
-			this.currentCharacterFrame=animate(stay);
+			this.currentCharacterFrame=animate(this.stay);
 		}else if(this.direction==-1){
-			this.currentCharacterFrame=animate(left);
+			this.currentCharacterFrame=animate(this.left);
 		}else if(this.direction==1){	
-			this.currentCharacterFrame=animate(left);
+			this.currentCharacterFrame=animate(this.left);
 		}
 		if(this.destination+5<this.sprite.x){
 			this.sprite.x-=5;
