@@ -17,7 +17,7 @@ body {
 	<body>
 		<script type="text/javascript">
 console.log('start');
-var game = new Phaser.Game(1112, 224, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1112, 224, Phaser.AUTO, '');
 game.state.add('outside',outsideState);
 game.state.add('indide',insideState);
 game.state.start('inside');
