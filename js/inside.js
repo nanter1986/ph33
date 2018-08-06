@@ -56,7 +56,7 @@ var insideState={
 	},
 	update:function(){
 		console.log('update');
-		this.sprite.loadTexture(currentCharacterFrame);
+		this.sprite.loadTexture(this.currentCharacterFrame);
 		//text.text='destination1'+destination;
 		if(this.direction==0){
 			this.currentCharacterFrame=animate(this.stay);
