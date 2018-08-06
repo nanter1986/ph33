@@ -114,15 +114,15 @@ var insideState={
 				this.popup.alpha=0.8;
 				this.popup.anchor.set(0.5);
 				var style = { font: "32px Arial", fill: "#ff0044", wordWrap: true, wordWrapWidth: this.popup.width, align: "center", backgroundColor: "#ffff00" };
-				this.text = game.add.text(popup.x, popup.y-20, "Enter Door?", style);
+				this.text = game.add.text(this.popup.x, this.popup.y-20, "Enter Door?", style);
 				this.text.anchor.set(0.5);
 				this.yes=game.add.sprite(this.text.x-120,this.text.y-40,'yes');
 				this.no=game.add.sprite(this.text.x,this.text.y-40,'no');
 				this.no.inputEnabled = true;
 				this.yes.inputEnabled = true;
 				this.popupOnscreen=true;
-				this.no.events.onInputDown.add(noClick, this);
-				this.yes.events.onInputDown.add(yesClick, this);
+				this.no.events.onInputDown.add(this.noClick, this);
+				this.yes.events.onInputDown.add(this.yesClick, this);
 			}
 		}
 		if(this.destination<this.sprite.x){
