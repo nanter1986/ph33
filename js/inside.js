@@ -47,7 +47,7 @@ var insideState={
 		this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
 		//this.sprite.events.onInputDown.add(listener,this);
 		game.camera.follow(this.sprite);
-		game.input.onTap.add(this.onTap,this);
+		game.input.onTap.add(this.onTapping,this);
 		this.left=['left1','left2','left3'];
 		this.stay=['robot'];
 		this.currentCharacterFrame=this.stay[0];
@@ -102,11 +102,11 @@ var insideState={
 	gofull:function(){
 		game.scale.startFullScreen(false);
 	},
-	onTap:function(pointer,doubleTap){
+	onTapping:function(pointer,doubleTap){
 		console.log("tap");
 		if(this.movable && this.popupOnscreen==false && this.delayForPopup==0){
 			this.movable=false;
-			this.mX=pointer.x;
+			var mX=pointer.x;
 			this.destination=mX;
 			if(this.destination>=420 && this.destination<=530 && this.sprite.x>=420 && this.sprite.x<=530){
 				this.text.text="door found";
