@@ -82,15 +82,15 @@ var insideState={
 
 
 	},
-	animate:function(){
+	animate:function(arrayOfFrames){
 		//animates any number of frames
-		var length=this.arrayOfFrames.length;
+		var length=arrayOfFrames.length;
 		console.log('1');
 		var frame;
 		console.log('2');
 		var index=this.step%length;
 		console.log('step:'+this.step+'/index:'+index+'/length:'+length);
-		frame=this.arrayOfFrames[index];
+		frame=arrayOfFrames[index];
 		console.log(frame);
 		this.step++;
 		if(this.step>=length){
