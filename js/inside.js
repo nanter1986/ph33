@@ -59,11 +59,11 @@ var insideState={
 		this.sprite.loadTexture(this.currentCharacterFrame);
 		//text.text='destination1'+destination;
 		if(this.direction==0){
-			this.currentCharacterFrame=animate(this.stay);
+			this.currentCharacterFrame=this.animate(this.stay);
 		}else if(this.direction==-1){
-			this.currentCharacterFrame=animate(this.left);
+			this.currentCharacterFrame=this.animate(this.left);
 		}else if(this.direction==1){	
-			this.currentCharacterFrame=animate(this.left);
+			this.currentCharacterFrame=this.animate(this.left);
 		}
 		if(this.destination+5<this.sprite.x){
 			this.sprite.x-=5;
