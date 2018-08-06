@@ -10,7 +10,7 @@ var insideState={
 	direction:0,
 	stay:null,
 	left:null,
-	currentCharacterFrame:null,
+	currentCharacterFrame:'robot',
 	popup:null,
 	yes:null,
 	no:null,
