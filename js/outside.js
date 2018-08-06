@@ -36,7 +36,7 @@ var outsideState={
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
 		//game.stage.backgroundColor = '#182d3b';
 		this.background = game.add.sprite(0, 0, 'background');
-		this.background.scale.setTo(2,2);
+		//this.background.scale.setTo(2,2);
 		this.background.visible=true;
 		this.sprite=game.add.sprite(200, 150, 'robot');
 		console.log(this.sprite);
