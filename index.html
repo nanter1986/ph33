@@ -181,7 +181,7 @@ function onTap(pointer,doubleTap){
 		movable=false;
 		mX=pointer.x;
 		destination=mX;
-		if(destination>=420 && destination<=530 && sprite.x>=420 && sprite.x<=530){
+		gf(destination>=420 && destination<=530 && sprite.x>=420 && sprite.x<=530){
 			text.text="door found";
 			popup=game.add.sprite(game.world.centerX,game.world.centerY,'box');
 			popup.alpha=0.8;

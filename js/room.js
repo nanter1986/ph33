@@ -1,12 +1,11 @@
 function Room(background,arrayOfClickables){
-	text:null,
-	counter:null,
-	button:null,
+	this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
+	//counter:null,
 	this.background = game.add.sprite(0, 0, background);
-	sprite:null,
+	this.sprite=game.add.sprite(200, 150, 'robot');
 	step:0,
 	movable:true,
-	destination:null,
+	this.destination=this.sprite.x;
 	direction:0,
 	this.stay=['robot'];
 	this.left=['left1','left2','left3'];
@@ -27,7 +26,6 @@ function Room(background,arrayOfClickables){
 		game.load.image('left1', 'assets/left1.png');
 		game.load.image('left2', 'assets/left2.png');
 		game.load.image('left3', 'assets/left3.png');
-		game.load.spritesheet('button', 'assets/button_sprite_sheet.png', 193, 71);
 		game.load.image('background','assets/back.png');
 		console.log('preload end');
 	},
@@ -36,17 +34,17 @@ function Room(background,arrayOfClickables){
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
 		this.background.scale.setTo(2,2);
 		this.background.visible=true;
-		this.sprite=game.add.sprite(200, 150, 'robot');
+		//this.sprite=game.add.sprite(200, 150, 'robot');
 		console.log(this.sprite);
 		this.sprite.anchor.set(0.5,0.5);
 		this.sprite.scale.setTo(2,2);
 		this.sprite.inputEnabled=true;
-		this.destination=this.sprite.x;
-		this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
+		//this.destination=this.sprite.x;
+		//this.text = game.add.text(250, 80, '', { fill: '#ffffff' });
 		//this.sprite.events.onInputDown.add(listener,this);
 		game.camera.follow(this.sprite);
 		game.input.onTap.add(this.onTapping,this);
-		this.currentCharacterFrame=this.stay[0];
+		//this.currentCharacterFrame=this.stay[0];
 		console.log(this.currentCharacterFrame);
 		console.log('create end');
 	},
