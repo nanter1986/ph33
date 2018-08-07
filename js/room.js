@@ -1,15 +1,15 @@
-function Room(){
+function Room(background,arrayOfClickables){
 	text:null,
 	counter:null,
 	button:null,
-	background:null,
+	this.background = game.add.sprite(0, 0, background);
 	sprite:null,
 	step:0,
 	movable:true,
 	destination:null,
 	direction:0,
-	stay:null,
-	left:null,
+	this.stay=['robot'];
+	this.left=['left1','left2','left3'];
 	currentCharacterFrame:'robot',
 	popup:null,
 	yes:null,
@@ -34,8 +34,6 @@ function Room(){
 	create:function(){
 		console.log('create start');
 		if (!game.device.desktop){ game.input.onDown.add(this.gofull, this); } //go fullscreen on mobile devices
-		//game.stage.backgroundColor = '#182d3b';
-		this.background = game.add.sprite(0, 0, 'background');
 		this.background.scale.setTo(2,2);
 		this.background.visible=true;
 		this.sprite=game.add.sprite(200, 150, 'robot');
@@ -48,8 +46,6 @@ function Room(){
 		//this.sprite.events.onInputDown.add(listener,this);
 		game.camera.follow(this.sprite);
 		game.input.onTap.add(this.onTapping,this);
-		this.left=['left1','left2','left3'];
-		this.stay=['robot'];
 		this.currentCharacterFrame=this.stay[0];
 		console.log(this.currentCharacterFrame);
 		console.log('create end');
